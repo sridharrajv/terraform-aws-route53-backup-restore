@@ -56,7 +56,7 @@ resource "aws_cloudwatch_event_rule" "trigger_backup_rule" {
   schedule_expression = "rate(${var.interval} minutes)"
   tags = merge(
     var.tags,
-    map(
+    tomap(
       "Creator", "Managed by Terraform",
     ),
   )

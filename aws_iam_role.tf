@@ -3,7 +3,7 @@ resource "aws_iam_role" "LambdaIamRoleRoute53Backup" {
   assume_role_policy = data.aws_iam_policy_document.lambda_assumerole.json
   tags = merge(
     var.tags,
-    map(
+    tomap(
       "Creator", "Managed by Terraform",
     ),
   )
