@@ -21,8 +21,9 @@ resource "aws_lambda_function" "LambdaFunctionRoute53Backup" {
   }
   tags = merge(
     var.tags,
-    map(
-      "Creator", "Managed by Terraform",
+    tomap({
+      "Creator" = "Managed by Terraform"
+      }
     ),
   )
 }
@@ -44,8 +45,9 @@ resource "aws_lambda_function" "LambdaFunctionRoute53Restore" {
   }
   tags = merge(
     var.tags,
-    map(
-      "Creator", "Managed by Terraform",
+    tomap({
+      "Creator" = "Managed by Terraform"
+      }
     ),
   )
 }
